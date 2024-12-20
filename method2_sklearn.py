@@ -11,7 +11,7 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 def prepare_data():
     df = pd.read_csv('Fuel_cell_performance_data-Full.csv')
     X = df[[f'F{i}' for i in range(1, 16)]]
-    y = df['Target4']
+    y = df['Target1']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
     scaler = StandardScaler()
     return scaler.fit_transform(X_train), scaler.transform(X_test), y_train, y_test
